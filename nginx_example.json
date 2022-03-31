@@ -43,7 +43,7 @@
         {
             "type": "shell",
             "inline":[
-                "sudo sed '1/^/deb-src http://deb.debian.org/debian bullseye main/' /etc/apt/sources.list",
+                "sudo sed  -i 'deb-src http://deb.debian.org/debian bullseye main' /etc/apt/sources.list",
                 "sudo cat /etc/apt/sources.list",
                 "sudo apt update",
                 "sudo apt -y install build-essential manpages-dev",
