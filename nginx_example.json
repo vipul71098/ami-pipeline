@@ -12,7 +12,7 @@
             "region": "{{user `aws_region`}}",
             "secret_key": "{{user `aws_secret_key`}}",
             "associate_public_ip_address":"true",
-            "source_ami": "ami-0e7a5554e82452478",
+            "source_ami": "ami-000722651477bd39b",
             "ssh_username": "ubuntu",
             "type": "amazon-ebs"
         }
