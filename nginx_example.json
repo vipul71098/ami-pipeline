@@ -45,7 +45,7 @@
             "inline":[
                 "sudo apt-get clean",
                 "sudo apt-get update",
-                "sudo apt-get -y  install build-essential libpcre3  libperl-dev libpcre3-dev libatomic-ops-dev  libgoogle-perftools-dev zlib1g zlib1g-dev  libgeoip-dev libssl-dev libgd-dev libxml2 libxml2-dev uuid-dev",
+                "sudo apt -y  install build-essential libpcre3  libperl-dev libpcre3-dev libatomic-ops-dev  libgoogle-perftools-dev zlib1g zlib1g-dev  libgeoip-dev libssl-dev libgd-dev libxml2 libxml2-dev uuid-dev",
                 "git clone https://github.com/vozlt/nginx-module-vts.git",
                 "sudo useradd -s /sbin/nologin nginx",
                 "wget https://nginx.org/download/nginx-1.18.0.tar.gz && tar zxvf nginx-1.18.0.tar.gz",
