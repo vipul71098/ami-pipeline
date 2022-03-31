@@ -26,5 +26,9 @@ jobs:
       # 1
       - name: Checkout code
         uses: actions/checkout@v2
+      
+      - name: Run  Nginx ami  
+        run:  packer build nginx_example.json
+
         
   
