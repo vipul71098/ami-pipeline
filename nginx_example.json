@@ -1,17 +1,16 @@
 {
     "variables": {
         "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
-        "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}"
+        "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+        "aws_region": "{{env `AWS_REGION`}}"
     },
     "builders": [
         {
             "access_key": "{{user `aws_access_key`}}",
             "ami_name": "NGINX_AMI_EXAMPLE {{ timestamp }}",
             "instance_type": "t2.micro",
-            "region": "us-east-1",
+            "region": "{{user `aws_region`}}",
             "secret_key": "{{user `aws_secret_key`}}",
-            "ssh_keypair_name":"tester",
-            "ssh_private_key_file":"tester.pem",
             "associate_public_ip_address":"true",
             "source_ami": "ami-000722651477bd39b",
             "ssh_username": "ubuntu",
