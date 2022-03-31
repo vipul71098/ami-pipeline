@@ -22,13 +22,13 @@ jobs:
       AWS_REGION: ${{ secrets.AWS_REGION }}
 
     runs-on: ubuntu-latest
-    steps:
-      # 1
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Run  Nginx ami  
-        run:  packer build nginx_example.json
+     steps:
+      - uses: actions/checkout@v1
+      - name: Packer build
+        uses: ExitoLab/packer_build_action_aws@v0.2.10
+        with:
+          templateFile: 'nginx_example.json'
+          workingDir: 'ami'
 
         
   
