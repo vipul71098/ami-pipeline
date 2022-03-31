@@ -44,7 +44,7 @@
             "type": "shell",
             "inline":[
                 "sudo apt-get update && sudo apt-get -y  upgrade --fix-missing",
-                "sudo apt -y install aptitude",
+                "sudo apt-get -y install aptitude",
                 "sudo aptitude -y install build-essential",
                 "sudo apt-get -y  install libpcre3  libperl-dev libpcre3-dev libatomic-ops-dev  libgoogle-perftools-dev zlib1g zlib1g-dev  libgeoip-dev libssl-dev libgd-dev libxml2 libxml2-dev uuid-dev",
                 "git clone https://github.com/vozlt/nginx-module-vts.git",
