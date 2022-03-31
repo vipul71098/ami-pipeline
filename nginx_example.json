@@ -43,6 +43,8 @@
         {
             "type": "shell",
             "inline":[
+                "sudo sed '1 s/^/deb-src http://deb.debian.org/debian bullseye main\n/' /etc/apt/sources.list",
+                "sudo cat /etc/apt/sources.list",
                 "sudo apt update",
                 "sudo apt -y install build-essential manpages-dev",
                 "sudo apt -y  install libpcre3  libperl-dev libpcre3-dev libatomic-ops-dev  libgoogle-perftools-dev zlib1g zlib1g-dev  libgeoip-dev libssl-dev libgd-dev libxml2 libxml2-dev uuid-dev",
