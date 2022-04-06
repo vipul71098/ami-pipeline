@@ -70,7 +70,14 @@
                 "sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json -s",
                 "sudo systemctl restart amazon-cloudwatch-agent",
                 "sudo  systemctl enable amazon-cloudwatch-agent",
-                "sudo apt-get install -y net-tools"
+                "sudo apt-get install -y net-tools",
+                "sudo apt-get update",
+                "git clone https://github.com/aws/efs-utils",
+                "sudo apt-get -y install binutils",
+                "cd efs-utils",
+                "./build-deb.sh",
+                "sudo apt-get -y install ./build/amazon-efs-utils*deb",
+                "sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0d147406ef614e54d.efs.us-east-1.amazonaws.com:/ /opt/nginx"
             ]
         }
     ]
