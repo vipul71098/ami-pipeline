@@ -2,7 +2,8 @@
     "variables": {
         "aws_access_key": "{{env `aws-access-key-id`}}",
         "aws_secret_key": "{{env `aws-secret-access-key`}}",
-        "aws_region": "{{env `aws-region`}}"
+        "aws_region": "{{env `aws-region`}}",
+        "efs_dns": "{{env `EFS_DNS`}}"
     },
     "builders": [
         {
@@ -40,10 +41,14 @@
             "source": "config.json",
             "destination": "/tmp/"
           },
+          
         {
             "type": "shell",
+            "environment_vars": [
+                "EFS_DNS={{user `efs_dns`}}"
+              ],
             "inline":[
-                "pwd",
+                "echo $EFS_DNS",
                 "sudo apt-get update && sudo apt-get upgrade -f -y", 
                 "sudo apt-get -y  install build-essential libpcre3  libperl-dev libpcre3-dev libatomic-ops-dev  libgoogle-perftools-dev zlib1g zlib1g-dev  libgeoip-dev libssl-dev libgd-dev libxml2 libxml2-dev uuid-dev",
                 "git clone https://github.com/vozlt/nginx-module-vts.git",
@@ -72,13 +77,19 @@
                 "sudo systemctl restart amazon-cloudwatch-agent",
                 "sudo  systemctl enable amazon-cloudwatch-agent",
                 "sudo apt-get install -y net-tools",
+                "cd /home/ubuntu",
                 "sudo apt-get update",
                 "sudo git clone https://github.com/aws/efs-utils.git",
+                "sudo chmod 777 /home/ubuntu/efs-utils/",
                 "sudo apt-get -y install binutils",
                 "cd efs-utils",
                 "./build-deb.sh",
                 "sudo apt-get -y install ./build/amazon-efs-utils*deb",
-                "sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0d147406ef614e54d.efs.us-east-1.amazonaws.com:/ /opt/nginx"
+                "sudo mkdir /opt/nginx",
+                "sudo chmod 775 /opt/nginx/",
+                "sudo chown -R $USER /opt/nginx",
+                "sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport $EFS_DNS:/ /opt/nginx",
+                "df -h"
             ]
         }
     ]
