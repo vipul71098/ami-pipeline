@@ -41,12 +41,14 @@ jobs:
           target: nginx_example.json
 
       # build artifact
-      - name: Build Artifact
-        uses: hashicorp/packer-github-actions@master
-        with:
-          command: packer build
-          arguments: "-color=false -on-error=abort"
-          target: nginx_example.json
+      # - name: Build Artifact
+      #   uses: hashicorp/packer-github-actions@master
+      #   with:
+      #     command: build
+      #     arguments: "-color=false -on-error=abort"
+      #     target: nginx_example.json
+      - name: BUild
+        run: packer build nginx_example.json
           
 
         
