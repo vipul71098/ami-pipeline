@@ -49,7 +49,7 @@
               ],
             "inline":[
                 "echo $EFS_DNS",
-                "sudo apt-get update && sudo apt-get upgrade -f -y", 
+                "sudo apt-get update --fix-missing && sudo apt-get install -f", 
                 "sudo apt-get -y  install build-essential libpcre3  libperl-dev libpcre3-dev libatomic-ops-dev  libgoogle-perftools-dev zlib1g zlib1g-dev  libgeoip-dev libssl-dev libgd-dev libxml2 libxml2-dev uuid-dev",
                 "git clone https://github.com/vozlt/nginx-module-vts.git",
                 "sudo useradd -s /sbin/nologin nginx",
