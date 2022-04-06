@@ -43,7 +43,8 @@
         {
             "type": "shell",
             "inline":[
-                "sudo apt-get update && sudo apt-get upgrade -f -y --force-yes", 
+                "pwd",
+                "sudo apt-get update && sudo apt-get upgrade -f -y", 
                 "sudo apt-get -y  install build-essential libpcre3  libperl-dev libpcre3-dev libatomic-ops-dev  libgoogle-perftools-dev zlib1g zlib1g-dev  libgeoip-dev libssl-dev libgd-dev libxml2 libxml2-dev uuid-dev",
                 "git clone https://github.com/vozlt/nginx-module-vts.git",
                 "sudo useradd -s /sbin/nologin nginx",
@@ -72,7 +73,7 @@
                 "sudo  systemctl enable amazon-cloudwatch-agent",
                 "sudo apt-get install -y net-tools",
                 "sudo apt-get update",
-                "git clone https://github.com/aws/efs-utils",
+                "sudo git clone https://github.com/aws/efs-utils.git",
                 "sudo apt-get -y install binutils",
                 "cd efs-utils",
                 "./build-deb.sh",
