@@ -42,7 +42,7 @@ jobs:
           arguments: -syntax-only
           target: nginx_example.json
 
-      build artifact
+      #build artifact
       - name: Build Artifact
         uses: hashicorp/packer-github-actions@master
         with:
